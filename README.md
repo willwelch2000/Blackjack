@@ -7,19 +7,60 @@ BasicStrategy class simulates a "perfectly-played" blackjack strategy using esta
 CountCards class expands on BasicStrategy by using card-counting techniques, including keeping track of a running "count" of high vs low cards.  
 PlayBlackjack is an interface to allow a user to play blackjack using the Blackjack class.
 
-**Use:**  
-1. Compile all classes
-2. To play blackjack via command line: "Java PlayBlackjack _number of players_" starts a game with an input number of players
-Example: "Java PlayBlackjack 5" starts game of blackjack with 5 players  
-The program will ask for the starting amount of money for each player.  
-  -For each round, the program will request a bet from each player, and then it will ask each player for a move.  
-  -Possible moves:   
-    --"stand" (be done with move)  
-    --"hit" (be dealt another card)  
-    --"double" (double down your bet and be dealt exactly one more card--only possible on first move)  
-    --"split" (split cards into two hands and play twice--only possible for hands with exactly two identical cards)  
-  -After each round, the program will ask "Continue?"  
-    --To continue, type "yes"  
-    --To stop, type "no"
-3. To run the card-counting simulator: "Java CountCards _number of rounds_" starts a simulation with an input number of rounds to simulate
-Example: "Java CountCards 100" simulates 100 rounds of blackjack using a card-counting strategy
+## Installation
+
+Download the 5 Java classes. Ensure that Java is installed.
+To compile the classes, do the following on the command line:
+```bash
+javac BlackjackPlayer.java
+javac Blackjack.java
+javac PlayBlackjack.java
+javac BasicStrategy.java
+javac CountCards.java
+```
+
+## Usage for playing blackjack with user input
+
+```bash
+# starts game with 5 players
+Java PlayBlackjack 5
+```
+
+Program asks for starting money for all players
+```bash
+# gives player 1 $5 to start
+Player 1 money:
+5
+```
+
+For every round, program asks for bet for each player
+```bash
+# gives player 1 a bet of $2
+Player 1 bet:
+2
+```
+
+Then, program will ask each player for moves until that turn is over  
+Possible moves:
+1. stand--_stand_
+2. hit--_hit_
+3. double down bet--_double_
+4. split hand--_split_
+```bash
+# stands (ends turn) for player 1
+Player 1 move:
+stand
+```
+
+Program asks "Continue?" Valid responses are _yes_ or _no_
+```bash
+Continue?
+no
+```
+
+## Usage for simulating card counting
+
+```bash
+# runs simulation of 100 rounds of blackjack for a single player
+Java CountCards 100
+```
