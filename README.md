@@ -1,29 +1,19 @@
 # Blackjack
-This project has a card-counting simulator, as well as the classes needed to simulate a blackjack game  
-
-Blackjack class represents a playable blackjack game for another Java class to utilize.  
-BlackjackPlayer class is a class used by Blackjack to set up individual virtual "players."  
-BasicStrategy class simulates a "perfectly-played" blackjack strategy using established principles of basic strategy.  
-CountCards class expands on BasicStrategy by using card-counting techniques, including keeping track of a running "count" of high vs low cards.  
-PlayBlackjack is an interface to allow a user to play blackjack using the Blackjack class.
+This project contains all the files for a card-counting simulator, a basic-strategy simulator, and a command-line Blackjack game. 
 
 ## Installation
-
-Download the 5 Java classes. Ensure that Java is installed.
-To compile the classes, do the following on the command line:
+From a command line, with Java installed:
 ```bash
-javac BlackjackPlayer.java
-javac Blackjack.java
+javac CountCards.java
 javac PlayBlackjack.java
 javac BasicStrategy.java
-javac CountCards.java
 ```
 
 ## Usage for playing blackjack with user input
 
 ```bash
 # starts game with 5 players
-Java PlayBlackjack 5
+java PlayBlackjack 5
 ```
 
 Program asks for starting money for all players
@@ -40,8 +30,8 @@ Player 1 bet:
 2
 ```
 
-Then, program will ask each player for moves until that turn is over  
-Possible moves:
+Then, program will ask each player for moves until that turn is over. 
+The possible moves are:
 1. stand--_stand_
 2. hit--_hit_
 3. double down bet--_double_
@@ -58,9 +48,31 @@ Continue?
 no
 ```
 
-## Usage for simulating card counting
+## Usage for simulating basic strategy
+```bash
+# runs simulation of 100 rounds of blackjack for a single player starting with $1000
+java BasicStrategy 1000 100
+```
 
+## Usage for simulating card counting
 ```bash
 # runs simulation of 100 rounds of blackjack for a single player
-Java CountCards 100
+java CountCards 100
 ```
+
+## Explanation of the separate classes created
+### BasicStrategy.java
+* Class that can be directly run to simulate playing blackjack with basic strategy.
+
+### Blackjack.java
+* This acts as an interface to play blackjack and is used by the other classes. 
+
+### BlackjackPlayer.java
+* This represents a single player in a blackjack game and is used by Blackjack.java.
+
+### CountCards.java
+* Class that can be directly run to simulate playing blackjack while counting cards.
+* Card counting is a legal (yet sometimes frowned upon) strategy in which the player keeps track of previously played cards and uses that knowledge to their advantage. The user adjusts their gameplay and betting value to take advantage of high-value situations. 
+
+### PlayBlackjack.java
+* Class that allows the user to play blackjack via the command line. 
